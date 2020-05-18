@@ -60,5 +60,13 @@ public class TeamService {
         toUpdate.setName(programmer.getName());
         return this.mapToDTO(this.repo.save(toUpdate));
     }
+    //finds repo by ID, or throw error, THEN
+    //make new programmer with input, and then get the list of programmers and save it to the list.
+    public TeamDTO addProgrammerToTeam(Long id, Programmer programmer) {
+        Team toUpdate = this.repo.findById(id).orElseThrow(() -> new TeamNotFoundException());
+        Programmer newProgrammer = this.programmerRepo.save(programmer);
+        toUpdate.getProgrammers().add(programmer);
+        return this.mapToDTO(this.repo.saveAndFlush(toUpdate));
+    }
 
 }
