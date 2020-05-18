@@ -1,36 +1,17 @@
-package com.qa.persistence.domain;
+package com.qa.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.Objects;
+import java.util.Objects; // if errors, remove, and remove equals/tohash code. strange.
 
-@Entity
-public class Programmer {
-    @Id
-    @GeneratedValue
-    private long id; // sets an id, to be generated, long type.
+public class ProgrammerDTO {
+
+    //programmer variables
+
+    private long id;
 
     private String firstName;
     private String lastName;
     private String language;
     private String teamRole;
-
-    // constructor, filled
-    public Programmer(String firstName, String lastName, String language, String teamRole){
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.language = language;
-        this.teamRole = teamRole;
-    }
-    //blank Constructor (essential)
-    public Programmer() {
-
-    }
-    //get/set/equals methods below
 
     public long getId() {
         return id;
@@ -68,15 +49,26 @@ public class Programmer {
         return teamRole;
     }
 
-    public void setTeamRoll(String teamRoll) {
-        this.teamRole = teamRoll;
+    public void setTeamRole(String teamRole) {
+        this.teamRole = teamRole;
+    }
+
+    @Override
+    public String toString() {
+        return "ProgrammerDTO{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", language='" + language + '\'' +
+                ", teamRole='" + teamRole + '\'' +
+                '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Programmer that = (Programmer) o;
+        ProgrammerDTO that = (ProgrammerDTO) o;
         return id == that.id &&
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&

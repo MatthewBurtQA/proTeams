@@ -7,5 +7,4 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason ="This programmer doesn't exist")
 public class ProgrammerNotFoundException  extends EntityNotFoundException{
 
-    private static final long serialVersionUID =  0l;
 }
