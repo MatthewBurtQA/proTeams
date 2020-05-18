@@ -63,9 +63,4 @@ public class ProgrammerService {
         MyBeanUtils.mergeNotNull(programmer, toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
-
-
-
-
-
 }
