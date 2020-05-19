@@ -81,15 +81,25 @@ public class ProgrammerServiceUnitTest {
         verify(this.repo, times(2)).existsById(id);
     }
 
+    //check that the mock instance with ID 1 can be found, assert that it has been found using find by id
 
     @Test
     public void findProgrammerByIDTest() {
         when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testProgrammerWithID));
         when(this.mapper.map(testProgrammerWithID, ProgrammerDTO.class)).thenReturn(programmerDTO);
         assertEquals(this.programmerDTO, this.service.findProgrammerByID(id));
+        verify(this.repo, times(1)).findById(this.id);
     }
 
-    
+    @Test
+    public void readProgrammerTest(){
+        when(repo.findAll()).thenReturn(this.programmerList);
+        when(this.mapper.map(testProgrammerWithID, ProgrammerDTO.class)).thenReturn(programmerDTO);
+        assertFalse("Controller has found no programmers", this.service.readProgrammers().isEmpty());
+
+        verify(repo, times(1)).findAll();
+    }
+
 
 
 }
