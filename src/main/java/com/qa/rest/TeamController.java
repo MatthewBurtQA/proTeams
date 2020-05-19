@@ -41,9 +41,9 @@ public class TeamController {
     }
     //cruD
 
-    @DeleteMapping("/deletePond/{id}")
+    @DeleteMapping("/deleteTeam/{id}")
     public ResponseEntity<TeamDTO> deleteTeam(@PathVariable Long id){
-        return this.service.deleteTeam(id)  ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+        return this.service.deleteTeam(id) ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
                 : ResponseEntity.noContent().build();
     }
     //cRud
