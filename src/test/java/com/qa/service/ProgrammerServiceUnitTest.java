@@ -59,6 +59,7 @@ public class ProgrammerServiceUnitTest {
         this.programmerDTO = new ModelMapper().map(testProgrammerWithID, ProgrammerDTO.class);
     }
 
+    //first we start with creation, now that set up works.
     @Test
     public void createProgrammerTest() {
         when(this.repo.save(testProgrammer)).thenReturn(testProgrammerWithID);
@@ -68,6 +69,27 @@ public class ProgrammerServiceUnitTest {
         assertEquals(this.programmerDTO, this.service.createProgrammer(testProgrammer));
         verify(this.repo, times(1)).save(this.testProgrammer);
     }
+
+    //delete test case: Check item exists by ID, call delete method on that item, then verify
+    //that it's been deleted
+
+    @Test
+    public void deleteProgrammerTest(){
+        when(this.repo.existsById(id)).thenReturn(true, false);
+        this.service.deleteProgrammer(id);
+        verify(this.repo, times(1)).deleteById(id);
+        verify(this.repo, times(2)).existsById(id);
+    }
+
+
+    @Test
+    public void findProgrammerByIDTest() {
+        when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testProgrammerWithID));
+        when(this.mapper.map(testProgrammerWithID, ProgrammerDTO.class)).thenReturn(programmerDTO);
+        assertEquals(this.programmerDTO, this.service.findProgrammerByID(id));
+    }
+
+    
 
 
 }
