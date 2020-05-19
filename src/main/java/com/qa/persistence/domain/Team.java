@@ -1,16 +1,13 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Team {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // sets an ID, to be generated auto, of type long
 
     private String name; // a teams name. all relevant team details are observed by the programmers within
