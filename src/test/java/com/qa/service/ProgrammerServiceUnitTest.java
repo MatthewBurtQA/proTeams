@@ -90,6 +90,8 @@ public class ProgrammerServiceUnitTest {
         assertEquals(this.programmerDTO, this.service.findProgrammerByID(id));
         verify(this.repo, times(1)).findById(this.id);
     }
+    //time to test the reading ability of the program. find list of programmers, map programmer with ID to DTO and return the DTO
+    // then assert it is there
 
     @Test
     public void readProgrammerTest(){
@@ -100,6 +102,27 @@ public class ProgrammerServiceUnitTest {
         verify(repo, times(1)).findAll();
     }
 
+    //finally, test the update.
+
+//    @Test
+//    public void updateProgrammerTest(){
+//        Programmer noobProgrammer = new Programmer("Mattia", "Burt", "PHP", "Abject failure");
+//        Programmer updatedProgrammer = new Programmer(noobProgrammer.getFirstName(), noobProgrammer.getLastName(), noobProgrammer.getLanguage(), noobProgrammer.getTeamRole());
+//        updatedProgrammer.setId(this.id); // this vesion works, other did not
+//
+//        ProgrammerDTO updatedDTO = new ModelMapper().map(updatedProgrammer, ProgrammerDTO.class);
+//
+//        //now for the operations
+//        when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testProgrammerWithID));
+//        when(this.mapper.map(updatedProgrammer, ProgrammerDTO.class)).thenReturn(updatedDTO);
+//        when(this.repo.save(updatedProgrammer)).thenReturn(updatedProgrammer);
+//
+//        //now assert results equality check passes
+//        assertEquals(updatedDTO, this.service.updateProgrammer(noobProgrammer,this.id));
+//        verify(this.repo, times(1)).findById(1L);
+//        verify(this.repo, times(1)).save(updatedProgrammer);
+//    }
+//
 
 
 }

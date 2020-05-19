@@ -69,16 +69,44 @@ public class Programmer {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Programmer that = (Programmer) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(language, that.language) &&
-                Objects.equals(teamRole, that.teamRole);
-    }
+    public  boolean equals(Object obj){
+        if(this == obj)
+            return true;
+        if(obj==null)
+            return false;
+        if (getClass() != obj.getClass())
+            return  false;
+        Programmer other = (Programmer) obj;
+        if (firstName == null) {
+            if (other.firstName != null) {
+                return false;
+            } else if (!firstName.equals(other.firstName))
+                return false;
+        }
+            if(lastName == null){
+                if(other.lastName != null){
+                    return false;
+                } else if(!lastName.equals(other.lastName))
+                    return false;
+            }
+            if(language == null){
+                if(other.language != null) {
+                    return false;
+                }else if(!language.equals(other.language)){
+                    return false;
+                }
+             if(teamRole == null){
+                 if(other.teamRole != null) {
+                     return false;
+                 }else if (!teamRole.equals(other.teamRole)){
+                     return false;
+                 }
+             }
+
+            }
+            return true;
+        }
+
 
     @Override
     public int hashCode() {
