@@ -38,7 +38,6 @@ public class TeamService {
         return this.mapToDTO(this.repo.save(team));
     }
 
-    //Delete maself if i could
     public boolean deleteTeam(Long id){
         if (!this.repo.existsById(id)){
             throw new TeamNotFoundException(); // if this does not equals a repo that exists by this id then delete
