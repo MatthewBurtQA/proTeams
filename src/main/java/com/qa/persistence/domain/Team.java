@@ -19,6 +19,12 @@ public class Team {
     public Team(){
 
     }
+    public Team(String name){
+        super();
+        this.name = name;
+
+    }
+
 
     public Long getId() {
         return id;
