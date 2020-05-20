@@ -64,8 +64,8 @@ public class Programmer {
         return teamRole;
     }
 
-    public void setTeamRoll(String teamRoll) {
-        this.teamRole = teamRoll;
+    public void setTeamRole(String teamRole) {
+        this.teamRole = teamRole;
     }
 
     @Override
