@@ -43,10 +43,12 @@ Selenium: Currently missing, however the best way to test the front end is Selen
 Generally I would recommend constructing this as a WAR, then deploying it on a cloud server to run continuously. 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* Intellij IDE
+* Brackets text editor for HTML/CSS/JSCRIPT
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
+* Mockito
+* JUnit
+* Spring
 ## Authors
 
 * **Matthew Burt/SmilingGecko** - 
