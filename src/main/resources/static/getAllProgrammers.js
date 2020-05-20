@@ -14,7 +14,7 @@ function getAllProgrammers() {
     }
   };
 
-  let userOBJ = REQ.open("GET", `http://localhost:8182/programmer/getAllProgrammers/`);
+  let userOBJ = REQ.open("GET", `http://localhost:8080/programmer/getAllProgrammers/`);
   REQ.setRequestHeader("Content-type", "Application/json");
   REQ.setRequestHeader('Access-Control-Allow-Origin', '*');
   REQ.responseType = "json";

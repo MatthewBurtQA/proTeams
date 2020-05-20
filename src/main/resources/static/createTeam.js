@@ -1,11 +1,11 @@
  const postTeam = () => {
-  let teamName = document.getElementById("teamNameINPUT").value;
+  let name = document.getElementById("teamNameINPUT").value;
 
   axios({
     method: 'post',
-    url: 'http://localhost:8182/team/createTeam',
+    url: 'http://localhost:8080/team/createTeam',
     data: {
-      "teamName" : teamName
+      "name" : name
     },
     headers: {'content-Type': 'application/json'}
   })
@@ -19,6 +19,3 @@
 
 let buttCreateTeam = document.querySelector('#buttCreateTeam');
 buttCreateTeam.addEventListener('click', postTeam);
-         <script src="createTeam.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
