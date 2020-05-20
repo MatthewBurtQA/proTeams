@@ -6,9 +6,14 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,7 +54,29 @@ public class TeamServiceIntegrationTest {
 
     @Before
     public void init(){
+        this.testTeam = new Team("Doomed dudes");
 
+        this.repo.deleteAll();
+        //getting around auto-generated id's
+        this.testTeamWithID = this.repo.save(this.testTeam);
+
+    }
+
+
+
+    @Test
+    public void testDeleteTeam() {
+        assertThat(this.service.deleteTeam(this.testTeamWithID.getId())).isFalse();
+    }
+
+    @Test
+    public void testFindTeamByID() {
+        assertThat(this.service.findTeamByID(this.testTeamWithID.getId())).isEqualTo(this.mapToDTO(this.testTeamWithID));
+    }
+
+    @Test
+    public void testReadTeams() {
+        assertThat(this.service.readTeams()).isEqualTo(Stream.of(this.mapToDTO(testTeamWithID)).collect(Collectors.toList()));
     }
 
 }
